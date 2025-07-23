@@ -16,4 +16,6 @@ export const Config = {
   MONGODB_URI: process.env.MONGODB_URI,
   ENCRYPTION_KEY: process.env.ENCRYPTION_KEY,
   SESSION_SECRET: process.env.SESSION_SECRET,
+  JWT_EXPIRES_IN: parseInt(process.env.JWT_EXPIRES_IN!),
+  JWT_COOKIE_EXPIRES_IN: parseInt(process.env.JWT_COOKIE_EXPIRES_IN!),
 };
