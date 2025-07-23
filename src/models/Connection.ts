@@ -1,5 +1,4 @@
 import mongoose, { Schema } from "mongoose";
-import { SUPPORTED_APPS } from "../const";
 
 const connectionSchema = new Schema(
   {
@@ -15,7 +14,9 @@ const connectionSchema = new Schema(
     metadata: Schema.Types.Mixed,
     encrypted: { type: Boolean, default: true },
   },
-  { timestamps: true }
+  { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
+
+connectionSchema.index({ userId: 1, integration: 1 }, { unique: true }); //Only one connection per integration per user
 
 export const Connection = mongoose.model("Connection", connectionSchema);

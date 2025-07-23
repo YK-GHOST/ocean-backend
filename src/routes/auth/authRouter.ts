@@ -1,12 +1,16 @@
 import express from "express";
 import passport from "passport";
+import { AuthController } from "../../controllers/AuthController";
+import { AuthRequest } from "../../interfaces/authRequest.interface";
 const router = express.Router();
+
+const authController = new AuthController();
 
 router.get(
   "/google",
   passport.authenticate("google-login", {
     scope: ["profile", "email"],
-    accessType: "offline",
+    access_type: "offline",
     prompt: "consent",
   } as any)
 );
@@ -15,9 +19,7 @@ router.get(
   passport.authenticate("google-login", {
     failureRedirect: "/auth/failure",
   }),
-  (req, res) => {
-    res.redirect("http://localhost:3000/profile");
-  }
+  (req, res, next) => authController.loginGoogle(req as AuthRequest, res, next)
 );
 
 export default router;
