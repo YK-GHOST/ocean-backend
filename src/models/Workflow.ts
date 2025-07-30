@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { SUPPORTED_APPS } from "../const";
+import { SUPPORTED_APPS } from "../types/index.types";
 
 const workflowSchema = new Schema({
   userId: { type: Schema.Types.ObjectId, ref: "User", required: true },

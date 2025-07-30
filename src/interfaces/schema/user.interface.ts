@@ -1,17 +1,18 @@
 export interface IUser extends Document {
-  provider: String;
-  profilePicture: String;
-  name: String;
+  _id: string;
+  provider: string;
+  profilePicture: string;
+  name: string;
 }
 
 export interface IGoogleUser extends IUser {
-  googleId: String;
-  email: String;
-  gAccessToken: String;
-  gRefreshToken: String;
+  googleId: string;
+  email: string;
+  gAccessToken: string;
+  gRefreshToken: string;
 }
 
 export interface ILocalUser extends IUser {
-  email: String;
-  password: String;
+  email: string;
+  password: string;
 }
