@@ -31,7 +31,7 @@ export class AuthController {
         httpOnly: true,
       };
       if (process.env.NODE_ENV === "prod") cookieOptions.secure = true;
-
+      
       res.cookie("jwtToken", token, cookieOptions);
 
       if (redirect && redirectUrl) {

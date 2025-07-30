@@ -73,6 +73,7 @@ passport.use(
           return done(new Error("Integration not found"), false);
         }
         console.log("✅ Integration found:", integration._id);
+        
         let connection = await Connection.findOne({
           userId,
           integration: integration?._id,
