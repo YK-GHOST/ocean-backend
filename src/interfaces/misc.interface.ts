@@ -1,5 +1,5 @@
 export interface GenericRepsone<T> {
-  status: "success" | "failed";
+  success: boolean;
   data?: T | Record<string, T>;
   error?: T;
 }

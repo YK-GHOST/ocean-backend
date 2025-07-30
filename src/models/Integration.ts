@@ -1,10 +1,14 @@
 import mongoose, { Schema } from "mongoose";
-import { SUPPORTED_APPS } from "../const";
 
-const integrationSchema = new Schema({
-  name: { type: String, required: true, enum: SUPPORTED_APPS },
-  authType: { type: String, enum: ["oauth2"], required: true },
-  scopes: [String],
-});
+const integrationSchema = new Schema(
+  {
+    name: { type: String, required: true },
+    displayName: { type: String, required: true },
+    description: { type: String },
+    icon: { type: String },
+    isActive: { type: Boolean, default: true },
+  },
+  { timestamps: true }
+);
 
 export const Integration = mongoose.model("Integration", integrationSchema);

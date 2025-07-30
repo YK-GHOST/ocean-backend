@@ -12,6 +12,10 @@ export class UserService<T extends Document> {
     return await this.model.findOne(query);
   }
 
+  async findById(id: string): Promise<T | null> {
+    return await this.model.findById(id);
+  }
+
   async update(id: string, data: Partial<T>): Promise<T | null> {
     if (Types.ObjectId.isValid(id) && id.length === 24) {
       return await this.model.findByIdAndUpdate(id, data, { new: true });

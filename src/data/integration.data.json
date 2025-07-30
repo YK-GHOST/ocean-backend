@@ -1,5 +1,9 @@
-{
-  "name": "google_drive",
-  "authType": "oauth2",
-  "scopes": ["drive"]
-}
+[
+  {
+    "name": "google_drive",
+    "displayName": "Google Drive",
+    "description": "Access your Google Drive files",
+    "icon": "https://fonts.gstatic.com/s/i/productlogos/drive_2020q4/v8/web-64dp/logo_drive_2020q4_color_2x_web_64dp.png",
+    "isActive": true
+  }
+]
