@@ -21,7 +21,6 @@ passport.use(
       try {
         userService = new UserService(GoogleUser);
         let user = await userService.findOne({ googleId: profile.id });
-        console.log("user: ", user);
         if (!user) {
           user = await userService.create({
             googleId: profile.id,
@@ -73,7 +72,7 @@ passport.use(
           return done(new Error("Integration not found"), false);
         }
         console.log("✅ Integration found:", integration._id);
-        
+
         let connection = await Connection.findOne({
           userId,
           integration: integration?._id,

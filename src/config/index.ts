@@ -19,6 +19,7 @@ interface ConfigType {
   JWT_EXPIRES_IN?: string;
   JWT_COOKIE_EXPIRES_IN: number;
   FRONTEND_URI?: string;
+  NODE_ENV?: string;
 }
 
 export const Config: ConfigType = {
@@ -35,4 +36,5 @@ export const Config: ConfigType = {
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN,
   JWT_COOKIE_EXPIRES_IN: parseInt(process.env.JWT_COOKIE_EXPIRES_IN!),
   FRONTEND_URI: process.env.FRONTEND_URI,
+  NODE_ENV: process.env.NODE_ENV,
 };

@@ -81,6 +81,7 @@ export class ConnectionController {
         }
       } catch (e) {
         console.error("❌ Failed to parse state parameter:", e);
+        next(e);
       }
 
       if (!userId) {
@@ -171,6 +172,8 @@ export class ConnectionController {
       });
     } catch (err) {
       console.error(`Error getting app satus for: ${req.params.app}`, err);
+      next(err);
+      return;
     }
   }
 }

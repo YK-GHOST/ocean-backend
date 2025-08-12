@@ -31,7 +31,7 @@ export class AuthController {
         httpOnly: true,
       };
       if (process.env.NODE_ENV === "prod") cookieOptions.secure = true;
-      
+
       res.cookie("jwtToken", token, cookieOptions);
 
       if (redirect && redirectUrl) {
@@ -77,10 +77,25 @@ export class AuthController {
         200,
         res,
         true,
-        "http://localhost:3000"
+        "http://localhost:3000/dashboard"
       );
     } catch (err) {
       console.error("Error logging google: ", err);
+      next(err);
+      return;
+    }
+  }
+
+  async getSelf(req: AuthRequest, res: Response, next: NextFunction) {
+    try {
+      const user = req.user?._id;
+      res.status(200).json({
+        data: { user: user },
+      });
+    } catch (err) {
+      console.error("Error getting user: ", err);
+      next(err);
+      return;
     }
   }
 }

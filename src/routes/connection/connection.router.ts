@@ -8,7 +8,6 @@ const router = express.Router();
 
 const connectionController = new ConnectionController();
 
-// Wrap async middleware to handle errors
 const asyncMiddleware =
   (middleware: any) => (req: any, res: Response, next: NextFunction) =>
     Promise.resolve(middleware(req, res, next)).catch(next);

@@ -30,7 +30,8 @@ const workflowSchema = new Schema({
       config: Schema.Types.Mixed,
     },
   ],
-  active: { type: Boolean, default: true },
+  active: { type: Boolean, default: false },
+  isDraft: { type: Boolean, default: true },
   createAt: { type: Date, default: Date.now },
 });
 
